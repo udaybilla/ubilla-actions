@@ -9,5 +9,5 @@ runs:
   steps:
     - run: |
         pip install pylint
-        python $GITHUB_WORKSPACE/.github/actions/python-checks/py-checks.py ${{ inputs.files }}
+        python .github/actions/python-checks/py-checks.py ${{ inputs.files }}
       shell: bash
