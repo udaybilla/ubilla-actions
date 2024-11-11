@@ -11,5 +11,7 @@ runs:
       uses: actions/checkout@v2
 
     - name: Run Python Checks
-      run: python ${{ github.action_path }}/py-checks.py ${{ inputs.files }}
+      run: |
+        pip install pylint 
+        python ${{ github.action_path }}/py-checks.py ${{ inputs.files }}
       shell: bash
