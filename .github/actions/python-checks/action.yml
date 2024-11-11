@@ -7,7 +7,8 @@ inputs:
 runs:
   using: 'composite'
   steps:
-    - run: |
-        pip install pylint
-        python .github/actions/python-checks/py-checks.py ${{ inputs.files }}
-      shell: bash
+    - name: Checkout self
+      uses: actions/checkout@v2
+      
+    - name: Run Python Checks
+      run: python ${{ github.action_path }}/.github/actions/python-checks/py-checks.py ${{ inputs.files }}
