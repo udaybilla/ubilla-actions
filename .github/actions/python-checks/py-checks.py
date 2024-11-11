@@ -17,7 +17,7 @@ def main():
 
     files = sys.argv[1:]
     for file in files:
-        # Run pylint for linting and code quality checks on each file
+        # Run pylint for linting and code quality checks for each file
         run_command(f"pylint {file}")
 
 if __name__ == "__main__":
