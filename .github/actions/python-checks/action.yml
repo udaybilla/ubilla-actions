@@ -9,6 +9,7 @@ runs:
   steps:
     - name: Checkout self
       uses: actions/checkout@v2
-      
+
     - name: Run Python Checks
       run: python ${{ github.action_path }}/.github/actions/python-checks/py-checks.py ${{ inputs.files }}
+      shell: bash
