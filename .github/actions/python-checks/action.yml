@@ -16,7 +16,7 @@ runs:
 
     - name: Run Python Checks 
       run: | 
-        cd ${{ github.action_path }}/.github/actions/python-checks 
-        export PYTHONPATH=${{ github.action_path }}/.github/actions/python-checks:$PYTHONPATH 
+        cd ${{ github.action_path }}
+        export PYTHONPATH=${{ github.action_path }}:$PYTHONPATH 
         python py-checks.py ${{ inputs.files }} 
       shell: bash
