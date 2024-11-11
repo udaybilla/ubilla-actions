@@ -10,8 +10,13 @@ runs:
     - name: Checkout self
       uses: actions/checkout@v2
 
-    - name: Run Python Checks
-      run: |
-        pip install pylint 
-        python ${{ github.action_path }}/py-checks.py ${{ inputs.files }}
+    - name: Install pylint 
+      run: pip install pylint 
+      shell: bash
+
+    - name: Run Python Checks 
+      run: | 
+        cd ${{ github.action_path }}/.github/actions/python-checks 
+        export PYTHONPATH=${{ github.action_path }}/.github/actions/python-checks:$PYTHONPATH 
+        python py-checks.py ${{ inputs.files }} 
       shell: bash
